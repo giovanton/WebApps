@@ -32,6 +32,14 @@ public class Servletlogout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession se = request.getSession(false);
+		if (se != null) {
+		se.invalidate();
+		log.info("Sesión cerrada");
+
+		}
+		response.sendRedirect("/WebProjectExample/login.html");
+	
 	}
 
 	/**
@@ -43,7 +51,9 @@ public class Servletlogout extends HttpServlet {
 		if (se != null) {
 		se.invalidate();
 		log.info("Sesión cerrada");
+
 		}
+		response.sendRedirect("/WebProjectExample/login.html");
 	}
 
 }

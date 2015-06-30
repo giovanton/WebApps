@@ -50,7 +50,7 @@ public class Cartelera extends HttpServlet {
 		pw.println("</title>");
 		pw.println("</head>");
 		pw.println("<body>");
-		pw.println("Estrenos de Cine </br>");
+		pw.println("<u>Estrenos de Cine</u> </br>");
 		for(Pelicula p:lista) {
 			pw.println(p.getNombre() + "</br>");
 			pw.println("Estreno día " + p.getFechaEstreno() + "</br>");

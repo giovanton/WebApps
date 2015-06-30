@@ -37,7 +37,8 @@ public class SessionListener implements HttpSessionListener{
 		String sid = se.getSession().getId();
 		HttpSession sesion = (HttpSession) hmt.get(sid);
 		log.info("Se elimina la sesión " + sesion);
-		hmt.remove(sesion);
+		hmt.remove(sid);
+		sc.setAttribute("hm", hmt);
 		log.info("Se ha destruido una sesión");
 	}
 

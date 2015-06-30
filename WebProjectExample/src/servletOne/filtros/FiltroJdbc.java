@@ -36,7 +36,8 @@ public class FiltroJdbc implements Filter{
 		String dir = hsr.getRequestURI();
 		HttpSession s1 = null;
 		if (null == (s1 = hsr.getSession(false))) {
-			if (dir.equals("/WebProjectExample/") || dir.equals("/WebProjectExample/login.html") || dir.equals("/WebProjectExample/ServletAutenticar")) {
+			if (dir.equals("/WebProjectExample/") || dir.equals("/WebProjectExample/login.html") || 
+					dir.equals("/WebProjectExample/ServletAutenticar") || dir.equals("/WebProjectExample/Cartelera")) {
 				chain.doFilter(request, response); 
 				log.info("Te dejo pasar por esta vez...");
 			} else {
