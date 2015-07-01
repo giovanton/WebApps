@@ -9,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 public class FiltroJdbc implements Filter{
 
 	private static Logger log = LogManager.getRootLogger();
+	Integer i = 0;
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
@@ -35,6 +37,37 @@ public class FiltroJdbc implements Filter{
 		HttpServletResponse hsresp = (HttpServletResponse)response;
 		String dir = hsr.getRequestURI();
 		HttpSession s1 = null;
+		if (dir.equals("/WebProjectExample/ServletAutenticar")) {
+			i++;
+		}
+		Cookie[] cks = hsr.getCookies();
+		if (null != cks) { 
+			/*bloque de verificación de cookies
+			 * no es muy adecuado el for por que si está la primera
+			 * seguiría el for hasta el final. Mejor un while con un
+			 * boolean para salir del bucle.
+			 */
+			for (int a = 0;a < cks.length; a++) {
+				if(cks[a].getName().equals("entradas") && (i < 5)) {
+					cks[a].setValue(i.toString());
+					log.info("Hay " + cks[a].getValue()+" entradas.");
+				} else if (i <= 1){
+					Cookie cookie = new Cookie("entradas", "0");
+					cookie.setMaxAge(60*60);
+					hsresp.addCookie(cookie);
+					cookie.setValue(i.toString());
+				} else if(i > 5) {
+					hsresp.sendRedirect("/WebProjectExample/sesionout.html");
+					cks[a].setMaxAge(0);
+					i=0;
+				}
+			}
+		} else {
+			Cookie cookie = new Cookie("entradas", "0");
+			cookie.setMaxAge(60*60);
+			hsresp.addCookie(cookie);
+			cookie.setValue(i.toString());
+		}
 		if (null == (s1 = hsr.getSession(false))) {
 			if (dir.equals("/WebProjectExample/") || dir.equals("/WebProjectExample/login.html") || 
 					dir.equals("/WebProjectExample/ServletAutenticar") || dir.equals("/WebProjectExample/Cartelera")) {

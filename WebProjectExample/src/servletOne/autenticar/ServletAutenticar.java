@@ -2,9 +2,12 @@ package servletOne.autenticar;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,21 +38,29 @@ public class ServletAutenticar extends HttpServlet{
 		AutenticarDAO auth = new AutenticarDAO();
 		resp.setContentType("text/html");
 		PrintWriter pw = resp.getWriter();
+				
 		if (auth.autenticar(nombre, pass)) {
 			HttpSession s1 = null;
 			if (null == (s1 = req.getSession(false))) {
 				s1 = req.getSession(true);
 				log.info("Sesión nueva creada.");
 			} else {
+				ServletContext sc = req.getServletContext();
+				HashMap hm = (HashMap) sc.getAttribute("hm");
+				hm.put(s1.getId(), s1);
+				sc.setAttribute("hm", hm);
 				log.info("Abierta la sesión existente");
 			}
+
 			//resp.sendRedirect("/WebProjectExample/logout.html");
+			
 			pw.println("Bienvenido " + nombre + "</br>");
 			pw.println("<a href=\"/WebProjectExample/index.html\">Recuperar Empleados mediante Hibernate</a></br>");
 			pw.println("<a href=\"/WebProjectExample/jdbc.html\">Recuperar Empleados mediante JDBC</a></br>");
 			pw.println("<a href=\"/WebProjectExample/Cartelera\">Cartelera de cine</a></br>");
 			RequestDispatcher rd = req.getRequestDispatcher("SesionesActivas");
 			rd.include(req, resp);
+			
 			pw.println("<form action=\"Servletlogout\" method=\"get\">");
 			pw.println("<input type=\"submit\" value=\"salir\">");
 			pw.println("</form>");
