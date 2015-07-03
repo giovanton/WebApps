@@ -51,9 +51,9 @@
     <servlet-class>servletOne.ServletRedirect</servlet-class>
   </servlet>
   <servlet>
-  <display-name>ServletError</display-name>
-  <servlet-name>ServletError</servlet-name>
-  <servlet-class>servletOne.ServletError</servlet-class>
+    <display-name>ServletError</display-name>
+    <servlet-name>ServletError</servlet-name>
+    <servlet-class>servletOne.ServletError</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ServletRedirect</servlet-name>
@@ -80,19 +80,19 @@
     <url-pattern>/RecEmpHibernate</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  <servlet-name>ServletError</servlet-name>
-  <url-pattern>/ServletError</url-pattern>
+    <servlet-name>ServletError</servlet-name>
+    <url-pattern>/ServletError</url-pattern>
   </servlet-mapping>
   <session-config>
     <session-timeout>60</session-timeout>
   </session-config>
   <error-page>
-  <error-code>404</error-code>
-  <location>/ServletError</location>
+    <error-code>404</error-code>
+    <location>/ServletError</location>
   </error-page>
   <error-page>
-  <exception-type>java.lang.Exception</exception-type>
-  <location>/ServletError</location>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/ServletError</location>
   </error-page>
   <welcome-file-list>
     <welcome-file>login.html</welcome-file>
