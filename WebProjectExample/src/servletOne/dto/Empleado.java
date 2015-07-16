@@ -14,6 +14,10 @@ public class Empleado {
 	private String commission_pct;
 	private int manager_id;
 	private int department_id;
+	
+	public Empleado() {
+	
+	}
 
 	public Empleado(int e_id, String f_name, String l_name, String email,
 			String phone, Date h_date, String j_id, float salary, String c_pct,

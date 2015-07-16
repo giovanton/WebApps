@@ -175,4 +175,9 @@ public class Employees implements java.io.Serializable ,Comparable<Employees>{
 	public int compareTo(Employees o) {
 	return (o.salary).compareTo(this.salary);
 	}
+	
+	@Override
+	public String toString() {
+	return (firstName + " " + lastName + " " + salary);
+	}
 }

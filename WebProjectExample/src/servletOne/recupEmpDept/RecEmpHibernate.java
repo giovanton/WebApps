@@ -1,4 +1,4 @@
-package servletOne;
+package servletOne.recupEmpDept;
 
 import java.io.IOException;
 import java.io.PrintWriter;

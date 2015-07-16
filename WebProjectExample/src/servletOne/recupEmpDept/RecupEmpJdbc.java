@@ -1,10 +1,12 @@
-package servletOne;
+package servletOne.recupEmpDept;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import servletOne.Pool;
 import servletOne.dao.EmpJdbcDAO;
 import servletOne.dto.Empleado;
 
@@ -43,11 +49,16 @@ public class RecupEmpJdbc extends HttpServlet{
 		} catch (NumberFormatException | SQLException e) {
 			log.error("Fallo al recuperar el empleado",e);
 		}
-		resp.setContentType("text/html");
+		/*resp.setContentType("text/html");
 		PrintWriter pw = resp.getWriter();
 		pw.println("Nombre del empleado : " + emp.getFirst_name() + 
-				" Apellido : " + emp.getLast_name() + " Salario : " +emp.getSalary());
-		
+				" Apellido : " + emp.getLast_name() + " Salario : " +emp.getSalary());*/
+		/*req.setAttribute("first_name", emp.getFirst_name());
+		req.setAttribute("last_name", emp.getLast_name());
+		req.setAttribute("salary", emp.getSalary());*/
+		req.setAttribute("emp", emp);
+		RequestDispatcher rd = req.getRequestDispatcher("buscaEmpleado.jsp");
+		rd.forward(req, resp);
 	}
 
 }

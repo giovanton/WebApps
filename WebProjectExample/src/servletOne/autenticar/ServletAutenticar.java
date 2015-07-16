@@ -58,6 +58,7 @@ public class ServletAutenticar extends HttpServlet{
 			pw.println("<a href=\"/WebProjectExample/index.html\">Recuperar Empleados mediante Hibernate</a></br>");
 			pw.println("<a href=\"/WebProjectExample/jdbc.html\">Recuperar Empleados mediante JDBC</a></br>");
 			pw.println("<a href=\"/WebProjectExample/Cartelera\">Cartelera de cine</a></br>");
+			pw.println("<a href=\"/WebProjectExample/RecupDepts\">Recuperación de Empleados</a></br>");
 			RequestDispatcher rd = req.getRequestDispatcher("SesionesActivas");
 			rd.include(req, resp);
 			
