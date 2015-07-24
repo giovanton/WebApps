@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Tabla Empleados por Departamento</title>
+<script src="scripts/inicio2.js"></script>
+</head>
+
+<body>
+	<div>
+		<table>
+			<tr>
+				<td><select id="departamentos" onchange="listarTrabajadores();"></select></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Buscar Departamentos" onclick="rellenaCaja();"></td>
+			</tr>
+		</table>
+		<table id="empleados">
+			<th>Empleados</th>
+		</table>
+	</div>
+	<div id="detalles" style="float: left"></div>
+</body>
+</html>

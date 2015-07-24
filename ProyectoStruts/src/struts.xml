@@ -24,6 +24,7 @@
 		
 		<action name="person" class="org.apache.struts.helloworld.action.PersonaAction" method="execute">
 			<result name="success">/HelloWorld.jsp</result>
+			<result name="input">/Error.jsp</result>
 		</action>
 		
 		<action name="empleado" class="org.apache.struts.helloworld.action.EmpleadoAction">

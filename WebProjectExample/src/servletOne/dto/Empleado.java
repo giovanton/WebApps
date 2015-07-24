@@ -35,6 +35,13 @@ public class Empleado {
 		this.department_id = d_id;
 	}
 
+	public Empleado(String f_name, String l_name, float salary) {
+		// TODO Auto-generated constructor stub
+		this.first_name = f_name;
+		this.last_name = l_name;
+		this.salary = salary;
+	}
+
 	public int getEmployee_id() {
 		return employee_id;
 	}

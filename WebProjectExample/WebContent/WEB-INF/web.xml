@@ -19,6 +19,24 @@
     <listener-class>servletOne.listeners.SessionListener</listener-class>
   </listener>
   <servlet>
+    <description>Ejemplo de Ajax</description>
+    <display-name>JsonHandler</display-name>
+    <servlet-name>JsonHandler</servlet-name>
+    <servlet-class>curso.jee.JsonHandler</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Ejemplo de Ajax</description>
+    <display-name>CargarTrabajadores</display-name>
+    <servlet-name>CargarTrabajadores</servlet-name>
+    <servlet-class>curso.jee.CargarTrabajadores</servlet-class>
+  </servlet>
+  <servlet>
+    <description>Ejemplo de Ajax</description>
+    <display-name>CargaMenuSelect</display-name>
+    <servlet-name>CargaMenuSelect</servlet-name>
+    <servlet-class>curso.jee.CargaMenuSelect</servlet-class>
+  </servlet>
+  <servlet>
     <description>Ejemplo de login</description>
     <display-name>ServletAutenticar</display-name>
     <servlet-name>ServletAutenticar</servlet-name>
@@ -58,12 +76,27 @@
   <servlet>
     <servlet-name>upload</servlet-name>
     <servlet-class>servletOne.UploadFileExample</servlet-class>
-    <init-param><param-name>RUTA_SUBIDA_FICHEROS</param-name><param-value>/home/giovanton/Imágenes/</param-value></init-param>
+    <init-param>
+      <param-name>RUTA_SUBIDA_FICHEROS</param-name>
+      <param-value>/home/giovanton/Imágenes/</param-value>
+    </init-param>
     <multipart-config>
       <max-file-size>3145728</max-file-size>
       <max-request-size>5242880</max-request-size>
     </multipart-config>
   </servlet>
+  <servlet-mapping>
+    <servlet-name>JsonHandler</servlet-name>
+    <url-pattern>/JsonHandler</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CargarTrabajadores</servlet-name>
+    <url-pattern>/CargarTrabajadores</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CargaMenuSelect</servlet-name>
+    <url-pattern>/CargaMenuSelect</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>upload</servlet-name>
     <url-pattern>/upload</url-pattern>

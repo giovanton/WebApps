@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+#tablero{ width:100%; height:100%; overflow:auto; position:absolute;}
+#a{ float:left; width:20%; height:25%; }
+#b{ float:left; width:20%; height:25%; }
+#c{ float:left; width:20%; height:25%; }
+#d{ float:left; width:20%; height:25%; }
+#e{ float:left; width:20%; height:25%; }
+#f{ float:left; width:20%; height:25%; }
+#g{ float:left; width:20%; height:25%; }
+#h{ float:left; width:20%; height:25%; }
+#i{ float:left; width:20%; height:25%; }
+#j{ float:left; width:20%; height:25%; }
+#k{ float:left; width:20%; height:25%; }
+#l{ float:left; width:20%; height:25%; }
+#m{ float:left; width:20%; height:25%; }
+#n{ float:left; width:20%; height:25%; }
+#o{ float:left; width:20%; height:25%; }
+#p{ float:left; width:20%; height:25%; }
+#q{ float:left; width:20%; height:25%; }
+#r{ float:left; width:20%; height:25%; }
+#s{ float:left; width:20%; height:25%; }
+#t{ float:left; width:20%; height:25%; }

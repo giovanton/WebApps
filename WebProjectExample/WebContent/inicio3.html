@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+var xmlHttp1 = new XMLHttpRequest();
+
+function rellenaCaja()
+{
+	xmlHttp1.onreadystatechange = procesarEventos;
+	xmlHttp1.open('GET', 'CargaJSON', true); //indicamos como vamos a enviar los datos, en este caso con el metodo GET al archivo meses.php?num= el valor que le indiquemos en el textbox
+	xmlHttp1.send(null);
+	
+}
+
+function procesarEventos()
+{
+   
+  if(xmlHttp1.readyState==4) //ya hemos recibido respuesta del servidor
+  {
+      if(xmlHttp1.status==200)// y el código de la cabecera http es bueno
+          {
+			alert("He recibido " + xmlHttp1.responseText);
+			var objetoJson = JSON.parse(xmlHttp1.responseText);
+			alert ("Persona = " + objetoJson.nombre);
+			alert ("Persona = " + objetoJson.edad);
+			document.getElementById("nombre").value = objetoJson.nombre;
+			document.getElementById("edad").value = objetoJson.edad;
+			
+          }
+      else
+      {
+          alert("Ha ocurrido un error"+ xmlHttp1.status +":"+ xmlHttp1.statusText);
+      }
+  }
+
+}
+
+
+
+</script>
+</head>
+
+
+<body>
+
+<table>
+	<tr><td><input type="text" id="nombre" ></td></tr>
+	<tr><td><input type="text" id="edad" ></td></tr>
+	<tr><td><input type="submit" value="Rellena" onclick="rellenaCaja();"></td></tr>
+</table>
+ 
+
+</body>
+</html>

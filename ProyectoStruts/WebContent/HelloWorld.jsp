@@ -10,5 +10,6 @@
 <body>
 <!-- <h2><s:property value="messageStore.message" /></h2>-->
 <h2><s:property value="nombre" /> <s:property value="edad" /></h2>
+<s:if test="hasActionMessages()"><s:actionmessage/></s:if>
 </body>
 </html>

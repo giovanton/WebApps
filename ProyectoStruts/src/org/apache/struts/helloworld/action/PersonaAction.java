@@ -33,4 +33,14 @@ public class PersonaAction extends ActionSupport {
 		System.out.println(nombre+ " " +edad);
 		return SUCCESS;
 	}
+	
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+		if(nombre.equals("Rajoy")) {
+			addActionError("Rajoy Rajao");
+		} else {
+			addActionMessage("Bienvenido "+nombre);
+		}
+	}
 }
