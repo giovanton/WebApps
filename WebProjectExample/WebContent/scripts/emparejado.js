@@ -1,7 +1,7 @@
 /**
  * 
  */
-window.onload(function rellenarColores() 
+function rellenarColores() 
 {
 	/*var i = 0;
 	var colores = [ "red", "blue", "cian", "green", "yellow", "orange",
@@ -17,4 +17,4 @@ document.getElementById("a").innerHTML = "he entrado";//colores[0];
 			i = 0;
 		}
 	}*/
-})
+}
