@@ -14,7 +14,9 @@ exports.create = (req, res) => {
     const user = {
         userName: req.body.userName,
         userLogin: req.body.userLogin,
-        userEmail: req.body.userEmail
+        userEmail: req.body.userEmail,
+        createdBy: req.body.createdBy,
+        modifiedBy: req.body.modifiedBy
     };
 
     User.create(user)
@@ -31,8 +33,8 @@ exports.create = (req, res) => {
 
 // Retrieve all
 exports.findAll = (req, res) => {
-    const name = req.query.userName;
-    var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
+    const name = req.query.name;
+    var condition = name ? { userName: { [Op.like]: `%${name}%` } } : null;
 
     User.findAll({ where: condition })
     .then(data => {
@@ -53,7 +55,25 @@ exports.findOne = (req, res) => {
 
 // Update an user by id
 exports.update = (req, res) => {
+    const id = req.params.id;
 
+    User.update(req.body, {
+        where: { userGuid: id }
+    }).then(num => {
+        if(num == 1){
+            res.send({
+                message: "Usuario actualizado."
+            });
+        }else{
+            res.send({
+                message: `No se pudo actualizar el usuario con id: ${id}`
+            });
+        }
+    }).catch(err => {
+        res.status(500).send({
+            message: "Error actualizando usuario con id: " + id
+        });
+    });
 };
 
 // Delete

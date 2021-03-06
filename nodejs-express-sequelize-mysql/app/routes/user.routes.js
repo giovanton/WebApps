@@ -9,5 +9,8 @@ module.exports = app => {
     // Retrieve All
     router.get("/",users.findAll);
 
+    // Update
+    router.put("/:id",users.update);
+
     app.use('/api/users', router);
 }
