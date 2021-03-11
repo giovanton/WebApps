@@ -25,6 +25,10 @@ module.exports = (sequelize, Sequelize) => {
             allofNull: false,
             field: 'user_email'
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         createdBy: {
             type: DataTypes.UUID,
             allowNull: false,

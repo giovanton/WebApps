@@ -85,3 +85,21 @@ exports.delete = (req, res) => {
 exports.deleteAll = (req, res) => {
 
 };
+
+exports.allAccess = (req, res) => {
+    res.status(200).send("Contenido Público");
+};
+
+exports.userBoard = (req, res) => {
+    res.status(200).send("Contenido de Usuario");
+};
+
+exports.moderatorBoard = (req, res) => {
+    res.status(200).send("Contenido de Moderador");
+
+};
+
+exports.administratorBoard = (req, res) => {
+    res.status(200).send("Contenido de Administrador");
+    
+}
