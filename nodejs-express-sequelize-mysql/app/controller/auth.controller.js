@@ -1,6 +1,6 @@
 const db = require("../models");
 const config = require("../config/auth.config");
-const User = db.User;
+const User = db.users;
 const Role = db.Role;
 
 const Op = db.Sequelize.Op;
@@ -10,10 +10,12 @@ bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
     User.create({
-        userName: req.body.userName,
-        userEmail: req.body.userEmail,
-        userLogin: req.body.userLogin,
-        password: bcrypt.hashSync(req.body.password, 8)
+        userName: req.body.username,
+        userEmail: req.body.email,
+        userLogin: req.body.userlogin,
+        password: bcrypt.hashSync(req.body.password, 8),
+        createdBy: '0000-0000-0000-0000',
+        modifiedBy: '0000-0000-0000-0000'
     })
      .then(user => {
          if(req.body.roles){
@@ -29,7 +31,7 @@ exports.signup = (req, res) => {
                  });
              })
          }else{
-             user.setRoles([1]).then(() => {
+             user.setRoles([3]).then(() => {
                  res.send({ message: "Usuario registrado correctamente."});
              });
          }
@@ -42,7 +44,7 @@ exports.signup = (req, res) => {
 exports.signin  = (req, res) => {
     User.findOne({
         where: {
-            userName: req.body.userName
+            userLogin: req.body.userlogin
         }
     })
     .then(user => {

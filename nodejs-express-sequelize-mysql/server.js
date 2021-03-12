@@ -23,15 +23,17 @@ db.sequelize.sync().then(() => {
 });
 
 require("./app/routes/user.routes")(app);
+require("./app/routes/auth.routes")(app);
+
 // Add Access Control Allow Origin headers
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
     );
     next();
-  });
+  }); */
 
 // simple route
 app.get("/", (req, res) => {

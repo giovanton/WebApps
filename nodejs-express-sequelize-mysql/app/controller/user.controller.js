@@ -15,6 +15,7 @@ exports.create = (req, res) => {
         userName: req.body.userName,
         userLogin: req.body.userLogin,
         userEmail: req.body.userEmail,
+        password: req.body.password,
         createdBy: req.body.createdBy,
         modifiedBy: req.body.modifiedBy
     };

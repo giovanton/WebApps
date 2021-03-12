@@ -1,11 +1,11 @@
 const db = require("../models");
 const ROLES = db.ROLES;
-const User = db.user;
+const User = db.users;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
     User.findOne({
         where: {
-            username: req.body.userName
+            userName: req.body.username
         }
     }).then(user => {
         if (user) {
@@ -17,25 +17,38 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
 
         User.findOne({
             where: {
-                email: req.body.userEmail
+                userLogin: req.body.userlogin
             }
         }).then(user => {
             if (user) {
                 res.status(400).send({
-                    message: "Este correo ya está en uso."
+                    message: "El login de usuario ya está en uso."
                 });
                 return;
             }
 
-            next();
+            User.findOne({
+                where: {
+                    userEmail: req.body.email
+                }
+            }).then(user => {
+                if (user) {
+                    res.status(400).send({
+                        message: "Este correo ya está en uso."
+                    });
+                    return;
+                }
+
+                next();
+            });
         });
     });
 };
 
 checkRolesExisted = (req, res, next) => {
-    if(req.body.roles){
-        for(let i = 0; i < req.body.roles.length; i++){
-            if(!ROLES.includes(req-body.roles[i])){
+    if (req.body.roles) {
+        for (let i = 0; i < req.body.roles.length; i++) {
+            if (!ROLES.includes(req - body.roles[i])) {
                 res.status(400).send({
                     message: "El Rol no existe: " + req.body.roles[i]
                 });
