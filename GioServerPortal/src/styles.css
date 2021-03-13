@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+.wrapper{
+    display: block;
+}
+
+#sidebar{
+    width: 450px;
+    background: #7386D5;
+    padding: 2em 1em;
+    box-shadow: 0 0 2.5em rgba(85, 85, 85, .5);
+    position: fixed !important;
+    transition: left 0.3s cubic-bezier(0, 0, 0.3, 1) !important;
+    left: -100% !important;
+    min-height: 100vh;
+    top: 0;
+/* top layer */
+    z-index: 1101 !important;
+    z-index: 200002 !important;
+    transition: left 0.3s ease-out !important;
+    transform: none !important;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar.active{
+    left: 0 !important;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    width: 100vw;
+    height: 100vh;
+    /* transparent black */
+    background: rgba(0, 0, 0, 0.7) !important;
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 998;
+    opacity: 0;
+    /* animate the transition */
+    transition: all 0.5s ease-in-out;
+}
+/* display .overlay when it has the .active class */
+.overlay.active {
+    background: rgba(0, 0, 0, 0.6) !important;
+    opacity: 1 !important;
+    z-index: 1100 !important;
+    z-index: 200001 !important;
+}
+
+#dismiss {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    /* top right corner of the sidebar */
+    top: 10px;
+    right: 10px;
+}

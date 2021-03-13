@@ -1,0 +1,31 @@
+<div id="content">
+    <div class="col">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar por nombre" [(ngModel)]="name" />
+
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="search()">Buscar</button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col center">Nombre</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Email</th>
+                    <th scope="col"><span (click)="newUser()" class="btn btn-primary">Nuevo</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userService.users;">
+                    <td>{{ user.userName }}</td>
+                    <td>{{ user.userLogin }}</td>
+                    <td>{{ user.userEmail }}</td>
+                    <td><span (click)="setSelectedUser(user)" class="btn btn-primary">Editar</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

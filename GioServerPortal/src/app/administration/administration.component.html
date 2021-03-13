@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <nav id="sidebar" [ngClass]="{ 'active': userService.opened }">
+        <div id="dismiss" (click)="closeSidenav()">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </div>
+        <app-user-edit></app-user-edit>
+    </nav>
+    <div class="row">
+        <div class="column">
+            <div class="col-4">
+                <nav>
+                    <a routerLink="./users" routerLinkActive="active">Usuarios</a>
+                </nav> 
+            </div>
+        </div>
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div> 
+    <div class="overlay" [ngClass]="{ 'active': userService.opened }"></div>
+</div>    

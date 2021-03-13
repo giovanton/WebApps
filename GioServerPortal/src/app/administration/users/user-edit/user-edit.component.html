@@ -1,0 +1,36 @@
+<div class="sidebar-header">
+    <h3>Editar Usuario</h3>
+</div>
+<div>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="Name">Nombre</label>
+                <input type="text" class="form-control" id="Name" required [(ngModel)]="userService.selectedUser.userName" name="Name" />
+            </div>
+
+            <div class="form-group">
+                <label for="Login">Login</label>
+                <input type="text" class="form-control" id="Login" required [(ngModel)]="userService.selectedUser.userLogin" name="Login" />
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" required [(ngModel)]="userService.selectedUser.userEmail"
+                    name="Email" />
+            </div>
+
+            <div class="form-check form-check-inline" *ngFor="let role of roles">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="role" [checked]="hasRole(role)" (click)="setRole(role,$event)">
+                <label class="form-check-label" for="inlineCheckbox1">{{ role.name }}</label>
+              </div>
+
+            <button (click)="saveUser()" class="btn btn-success">Guardar</button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Usuario guardado correctamente</h4>
+            <button class="btn btn-success">Añadir</button>
+        </div>
+    </div>
+</div>
