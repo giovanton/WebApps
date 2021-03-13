@@ -5,12 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch GioServer",
+            "program": "${workspaceFolder}/nodejs-express-sequelize-mysql/server.js",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
             "type": "chrome",
             "request": "launch",
-            "name": "Open users.component.html",
-            "url": "http://localhost:8080",
+            "name": "Launch in Chrome",
+            "url": "http://localhost:8081",
             "webRoot": "${workspaceFolder}",
-            "runtimeExecutable": "/bin/chromium-browser"
+            "runtimeExecutable": "/bin/chromium-browser",
+            "runtimeArgs": [
+                "--new-window",
+                "-user-data-dir=/${workspaceFolder}/DevProfile",
+                "--remote-debugging-port=9222"
+            ]
         }
     ]
 }
