@@ -79,54 +79,50 @@ exports.update = (req, res) => {
                         }
                     }
                 }).then(roles => {
-                    User.findOne({ where: {userGuid: id} }).then(u => {
+                    User.findOne({ where: { userGuid: id } }).then(u => {
                         u.setRoles(roles.map(r => r.id)).then(() => {
                             res.status(200);
+                        })
+                            .then(num => {
+                                if (num == 1) {
+                                    res.send(u);
+                                } else {
+                                    res.send({
+                                        message: `No se pudo actualizar el usuario con id: ${id}`
+                                    });
+                                }
+                            })
                     })
-                    .then(num => {
-                        if (num == 1) {
-                            res.send({
-                                message: "Usuario actualizado."
-                            });
-                        } else {
-                            res.send({
-                                message: `No se pudo actualizar el usuario con id: ${id}`
-                            });
-                        }
-                    })
-                })
-            }).catch(err => {
-                        res.status(500).send({
-                            message: "Error actualizando usuario con id: " + id
-                        });
+                }).catch(err => {
+                    res.status(500).send({
+                        message: "Error actualizando usuario con id: " + id
                     });
+                });
             };
         })
-    };
-            // Delete
-            exports.delete = (req, res) => {
+};
+// Delete
+exports.delete = (req, res) => {
 
-            };
+};
 
-            // Delete All
-            exports.deleteAll = (req, res) => {
+// Delete All
+exports.deleteAll = (req, res) => {
 
-            };
+};
 
-            exports.allAccess = (req, res) => {
-                res.status(200).send("Contenido Público");
-            };
+exports.allAccess = (req, res) => {
+    res.status(200).send("Contenido Público");
+};
 
-            exports.userBoard = (req, res) => {
-                res.status(200).send("Contenido de Usuario");
-            };
+exports.userBoard = (req, res) => {
+    res.status(200).send("Contenido de Usuario");
+};
 
-            exports.moderatorBoard = (req, res) => {
-                res.status(200).send("Contenido de Moderador");
+exports.moderatorBoard = (req, res) => {
+    res.status(200).send("Contenido de Moderador");
+};
 
-            };
-
-            exports.administratorBoard = (req, res) => {
-                res.status(200).send("Contenido de Administrador");
-
-            }
+exports.administratorBoard = (req, res) => {
+    res.status(200).send("Contenido de Administrador");
+}

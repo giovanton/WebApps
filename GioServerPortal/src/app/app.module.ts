@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { authIntercerptorProviders } from './Common/Helpers/auth.interceptor';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
+import { UserBoardComponent } from './user-board/user-board.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     RegisterComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    UserBoardComponent
   ],
   imports: [
     BrowserModule,
