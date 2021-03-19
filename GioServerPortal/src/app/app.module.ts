@@ -14,6 +14,7 @@ import { authIntercerptorProviders } from './Common/Helpers/auth.interceptor';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 import { UserBoardComponent } from './user-board/user-board.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserBoardComponent } from './user-board/user-board.component';
     FormsModule,
     HttpClientModule,
     AdministrationModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [authIntercerptorProviders],
   bootstrap: [AppComponent]
