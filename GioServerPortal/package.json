@@ -29,6 +29,7 @@
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
+    "login-with-plex": "^1.1.1",
     "popper.js": "^1.16.1",
     "remount": "^0.11.0",
     "rxjs": "~6.6.0",

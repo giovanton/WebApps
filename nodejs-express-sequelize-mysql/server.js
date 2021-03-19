@@ -24,6 +24,7 @@ db.sequelize.sync().then(() => {
 require('./app/routes/user.routes')(app);
 require('./app/routes/role.routes')(app);
 require('./app/routes/auth.routes')(app);
+require('./app/routes/plex-api.routes')(app);
 
 // Add Access Control Allow Origin headers
 /* app.use((req, res, next) => {

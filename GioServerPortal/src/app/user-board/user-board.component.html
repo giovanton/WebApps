@@ -1,14 +1,31 @@
 <div class="content">
   <div class="column">
-    <div class="row">
+    <div class="row" *ngIf="movies.length > 0">
       <h4 class="col-md-12">Películas Añadidas Recientemente</h4>
-      <ngb-carousel *ngIf="images">
+      <div *ngFor="let movie of movies">
+        <span>{{ movie.title }}</span>
+      </div>
+    </div>
+    <div class="row" *ngIf="tvShows.length > 0">
+      <h4 class="col-md-12">Series Añadidas Recientemente</h4>
+      <div *ngFor="let show of tvShows">
+        <label for="serie">{{ show.parentTitle }}</label>
+        <span id="serie">{{ show.title }}</span>
+        <img src="show.art" alt="">
+      </div>
+    </div>
+    <div class="row" *ngIf="songs.length > 0">
+      <h4 class="col-md-12">Música Añadida Recientemente</h4>
+      <div *ngFor="let song of songs">
+        <span>{{ song.title }}</span>
+      </div>
+    </div>
+  </div>
+    <!--       <ngb-carousel *ngIf="images">
         <ng-template ngbSlide *ngFor="let id of images">
           <div class="picsum-img-wrapper">
             <img [src]="id" alt="Random first slide">
           </div>
         </ng-template>
-      </ngb-carousel>
-    </div>
-  </div>
+      </ngb-carousel> -->
 </div>
