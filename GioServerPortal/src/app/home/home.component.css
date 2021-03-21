@@ -1,0 +1,13 @@
+h1 {
+    color: rgb(10, 17, 112);
+    text-align: center;
+}
+
+div.home-main {
+    padding-top: 15%;
+    padding-bottom: 20%;
+}
+
+p {
+    text-align: center;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { PlexService } from '../Common/Services/plex.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-user-board',
@@ -15,12 +16,15 @@ export class UserBoardComponent implements OnInit {
   movies: any[] = [];
   tvShows: any[] = [];
   songs: any[] = [];
+  url = 'http://gioserver.giogalnet.es:32400/web/index.html';
+  urlSafe!: SafeResourceUrl;
 
-  constructor(config: NgbCarouselConfig, private plexService: PlexService) {
+  constructor(config: NgbCarouselConfig, private plexService: PlexService, private sanitizer: DomSanitizer) {
     config.interval = 3000;
   }
 
   async ngOnInit(): Promise<void> {
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
     // this.libraries = await this.plexService.getLibraries();
     const addedMediaContainer = await this.plexService.getRecentlyAdded();
     const viewedMediaContainer = await this.plexService.getRecentlyViewed();

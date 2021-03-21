@@ -1,39 +1,44 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand navbar-dark bg-primary">
-    <div class="container-fluid">
-      <span class="navbar-brand">GioServer</span>
-      <div class="collapse navbar-collapse" id=navbarNav>
-        <ul class="navbar-nav" routerLinkActive="active">
-          <li class="nav-item" *ngIf="!isLoggedIn">
-            <a href="/home" routerLink="home" class="nav-link">Inicio</a>
-          </li>
-          <li class="nav-item" *ngIf="isLoggedIn && showUserBoard">
-            <a href="/user-board" class="nav-link" routerLink="user-board" *ngIf="isLoggedIn">Principal</a>
-          </li>          
-          <li class="nav-item" *ngIf="isLoggedIn && showAdminBoard">
-            <a href="/admin" routerLink="admin"  class="nav-link">Administración</a>
-          </li>
-        </ul>
+<div class="cover-container d-flex h-100 w-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <div class="container-fluid">
+        <span class="navbar-brand">GioServer</span>
+        <div class="collapse navbar-collapse" id=navbarNav>
+          <ul class="navbar-nav" routerLinkActive="active">
+            <li class="nav-item" *ngIf="!isLoggedIn">
+              <a href="/home" routerLink="home" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn && showUserBoard">
+              <a href="/user-board" class="nav-link" routerLink="user-board" *ngIf="isLoggedIn">Principal</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn && showAdminBoard">
+              <a href="/admin" routerLink="admin" class="nav-link">Administración</a>
+            </li>
+          </ul>
 
-        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-          <li class="nav-item">
-            <a href="/register" class="nav-link" routerLink="register">Registrarse</a>
-          </li>
-          <li class="nav-item">
-            <a href="/login" class="nav-link" routerLink="login">Conectarse</a>
-          </li>          
-        </ul>
+          <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <li class="nav-item">
+              <a href="/register" class="nav-link" routerLink="register">Registrarse</a>
+            </li>
+            <li class="nav-item">
+              <a href="/login" class="nav-link" routerLink="login">Conectarse</a>
+            </li>
+          </ul>
 
-        <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-          <li class="nav-item">
-            <a href class="nav-link" (click)="logout()">Desconectar</a>
-          </li>
-        </ul>
+          <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+            <li class="nav-item">
+              <a href class="nav-link" (click)="logout()">Desconectar</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    
-  </nav>
-  <div class="container mt-3">
+
+    </nav>
+  </header>
+  <main class="px-3">
     <router-outlet></router-outlet>
-  </div>
+  </main>
+  <footer class="mt-auto">
+    <p>Creado y mantenido por Giovanni Galecio</p>
+  </footer>
 </div>
