@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://gioserver.giogalnet.es:8080'
+  apiURL: 'http://www.giogalnet.es:8080'
 };
