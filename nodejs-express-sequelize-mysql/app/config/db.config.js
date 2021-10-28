@@ -1,5 +1,5 @@
 module.exports = {
-    HOST: "GioServer.giogalnet.es",
+    HOST: "gioserver.giogalnet.es",
     USER: "giovanton",
     PASSWORD: "MySql#1",
     DB: "gioserverdb",

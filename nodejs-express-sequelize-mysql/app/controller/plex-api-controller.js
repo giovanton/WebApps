@@ -3,7 +3,7 @@ const db = require("../models");
 const User = db.users;
 
 const client = new plexApi({ 
-    hostname: 'gioserver.giogalnet.es', 
+    hostname: 'www.giogalnet.es', 
     username: 'giovantong@gmail.com', 
     password: 'C0n3cta2', 
     managedUser: { name: 'Giovanni Galecio', pin: '7903' } });
