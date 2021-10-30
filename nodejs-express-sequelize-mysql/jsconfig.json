@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "ES6"
+    },
+    "typeAcquisition": {
+        "include": ["jquery","sequelize","express"]
+    },
+    "include": ["app/**/*"],
+    "exclude": ["node_modules","**/node_modules/*"]
+}

@@ -4,5 +4,21 @@
 			"path": "nodejs-express-sequelize-mysql"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default"
+				},
+				"previewLimit": 50,
+				"server": "gioserver.giogalnet.es",
+				"port": 3306,
+				"driver": "MariaDB",
+				"name": "GioServer",
+				"database": "gioserverdb",
+				"username": "giovanton",
+				"password": "MySql#1"
+			}
+		]
+	}
 }
