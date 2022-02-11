@@ -17,7 +17,7 @@
 				"name": "GioServer",
 				"database": "gioserverdb",
 				"username": "giovanton",
-				"password": "MySql#1"
+				"password": "Mysql#1"
 			}
 		]
 	}
