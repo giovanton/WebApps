@@ -8,9 +8,9 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
+            "url": "http://localhost:8081",
             "webRoot": "${workspaceFolder}",
-            "runtimeExecutable": "/bin/chromium-browser",
+            "runtimeExecutable": "/usr/lib64/chromium-freeworld/chromium-freeworld",
             "runtimeArgs": [
                 "-user-data-dir=/${workspaceFolder}/DevProfile",
                 "--remote-debugging-port=9222",
