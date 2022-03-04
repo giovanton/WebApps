@@ -5,8 +5,8 @@ const cors = require('cors');
 const app = express();
 
 var corsOptions = {
-    origin: 'http://localhost:8081',
-    
+    //origin: 'http://localhost:8081',  //Desarrollo
+    origin: 'https://www.giogalnet.es',  //Producción    
 };
 
 app.use(cors(corsOptions));

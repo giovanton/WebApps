@@ -75,7 +75,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "GioServerPortal:build:production"
+              "browserTarget": "GioServerPortal:build:production",
+              "ssl": true,
+              "sslCert": "~/assets/cert/giogalnet.es.cer",
+              "sslKey": "~/assets/cert/giogalnet.es.key"
             }
           }
         },
