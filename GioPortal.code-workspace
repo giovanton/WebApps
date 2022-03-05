@@ -3,5 +3,8 @@
 		{
 			"path": "GioServerPortal"
 		}
-	]
+	],
+	"settings": {
+		"tslint.jsEnable": true
+	}
 }
