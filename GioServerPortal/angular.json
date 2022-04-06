@@ -71,7 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "GioServerPortal:build",
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.json",
+            "ssl": true,
+            "sslCert": "src/assets/cert/giogalnet.es.cer",
+            "sslKey": "src/assets/cert/giogalnet.es.key"
           },
           "configurations": {
             "production": {
