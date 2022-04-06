@@ -3,6 +3,15 @@ module.exports = app => {
 
     var router = require("express").Router();
 
+    app.use(function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', req.headers.origin);
+        res.header(
+            "Access-Control-Allow-Headers",
+            "x-access-token, Origin, Content-Type, Accept"
+        );
+        next();
+    });
+
     // Create a new user
     router.post("/", users.create);
 

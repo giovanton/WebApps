@@ -16,7 +16,7 @@ export class UserBoardComponent implements OnInit {
   movies: any[] = [];
   tvShows: any[] = [];
   songs: any[] = [];
-  url = 'http://gioserver.giogalnet.es:32400/web/index.html';
+  url = 'https://gioserver.giogalnet.es:32400/web/index.html';
   urlSafe!: SafeResourceUrl;
 
   constructor(config: NgbCarouselConfig, private plexService: PlexService, private sanitizer: DomSanitizer) {

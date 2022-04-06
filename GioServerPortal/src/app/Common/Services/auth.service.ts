@@ -19,7 +19,7 @@ export class AuthService {
   login(userlogin: string, password: string): Promise<any>{
     return this.http.post(AUTH_API + 'signin', {
        userlogin, password
-      }, httpOptions).toPromise();
+      }).toPromise();
   }
 
   register(username: string, userlogin: string, email: string, password: string): Promise<any>{
